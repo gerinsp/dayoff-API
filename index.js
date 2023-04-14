@@ -5,6 +5,8 @@ const url = require('url');
 const express = require('express');
 const app = express();
 
+app.use(express.static('./public'))
+
 let year;
 app.get('/api', (req, res) => {
   const query = url.parse(req.url).query;
@@ -111,6 +113,10 @@ app.get('/api', (req, res) => {
     }
   });
 }); 
+
+app.get('/', (req, res) => {
+  res.sendFile('index.html');
+})
 
 app.listen(3000, () => {
   console.log('Website berjalan pada port 3000!');
