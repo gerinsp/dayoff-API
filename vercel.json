@@ -8,8 +8,5 @@
       "src": "/(.*)",
       "dest": "public/index.html"
     }
-  ],
-  "scripts": {
-    "build": "npm run app"
-  }
+  ]
 }
