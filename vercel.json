@@ -1,13 +1,15 @@
 {
-    "version": 2,
-    "name": "dayoff-API",
-    "builds": [
-       { "src": "index.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-       { "src": "/api(.*)", "dest": "/index.js" }
-    ],
-    "scripts": {
-        "build": "npm run app"
+  "version": 2,
+  "name": "dayoff-API",
+  "builds": [{ "src": "index.js", "use": "@vercel/node" }],
+  "routes": [
+    { "src": "/api(.*)", "dest": "/index.js" },
+    {
+      "src": "/(.*)",
+      "dest": "public/index.html"
     }
- }
+  ],
+  "scripts": {
+    "build": "npm run app"
+  }
+}
