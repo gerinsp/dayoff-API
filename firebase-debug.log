@@ -1,0 +1,82 @@
+[debug] [2023-04-14T05:50:34.433Z] ----------------------------------------------------------------------
+[debug] [2023-04-14T05:50:34.439Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-04-14T05:50:34.440Z] CLI Version:   11.27.0
+[debug] [2023-04-14T05:50:34.441Z] Platform:      win32
+[debug] [2023-04-14T05:50:34.441Z] Node Version:  v18.14.0
+[debug] [2023-04-14T05:50:34.443Z] Time:          Fri Apr 14 2023 12:50:34 GMT+0700 (Western Indonesia Time)
+[debug] [2023-04-14T05:50:34.443Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-14T05:50:34.597Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-14T05:50:34.598Z] > authorizing via signed-in user (denapratama7@gmail.com)
+[debug] [2023-04-14T05:50:34.598Z] [iam] checking project dayoffapi for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-04-14T05:50:34.602Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/dayoffapi:testIamPermissions [none]
+[debug] [2023-04-14T05:50:34.603Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/dayoffapi:testIamPermissions x-goog-quota-user=projects/dayoffapi
+[debug] [2023-04-14T05:50:34.603Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/dayoffapi:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-04-14T05:50:35.815Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/dayoffapi:testIamPermissions 200
+[debug] [2023-04-14T05:50:35.815Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/dayoffapi:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-04-14T05:50:35.817Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/dayoffapi/serviceAccounts/dayoffapi@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-04-14T05:50:35.817Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/dayoffapi/serviceAccounts/dayoffapi@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-04-14T05:50:36.921Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/dayoffapi/serviceAccounts/dayoffapi@appspot.gserviceaccount.com:testIamPermissions 404
+[debug] [2023-04-14T05:50:36.921Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/dayoffapi/serviceAccounts/dayoffapi@appspot.gserviceaccount.com:testIamPermissions {"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}}
+[debug] [2023-04-14T05:50:36.923Z] [functions] service account IAM check errored, deploy may fail:HTTP Error: 404, Unknown service account {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"HTTP Error: 404, Unknown service account","status":404}
+[debug] [2023-04-14T05:50:36.925Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/dayoffapi [none]
+[debug] [2023-04-14T05:50:37.307Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/dayoffapi 200
+[debug] [2023-04-14T05:50:37.308Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/dayoffapi {"projectId":"dayoffapi","projectNumber":"611856724776","displayName":"dayoffAPI","name":"projects/dayoffapi","resources":{"hostingSite":"dayoffapi"},"state":"ACTIVE","etag":"1_af5ba8e8-234f-405e-9c87-a97ebceed1e0"}
+[info] 
+[info] === Deploying to 'dayoffapi'...
+[info] 
+[info] i  deploying functions, hosting 
+[debug] [2023-04-14T05:50:37.430Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at new NodeError (node:internal/errors:399:5)
+    at validateString (node:internal/validators:163:11)
+    at Object.join (node:path:429:7)
+    at Config.path (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\config.js:123:45)
+    at getChildEnvironment (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\lifecycleHooks.js:52:49)
+    at runTargetCommands (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\lifecycleHooks.js:73:14)
+    at C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\lifecycleHooks.js:125:24
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async chain (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:35:9)
+    at async deploy (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:78:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-04-14T05:50:50.505Z] ----------------------------------------------------------------------
+[debug] [2023-04-14T05:50:50.511Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-04-14T05:50:50.513Z] CLI Version:   11.27.0
+[debug] [2023-04-14T05:50:50.513Z] Platform:      win32
+[debug] [2023-04-14T05:50:50.513Z] Node Version:  v18.14.0
+[debug] [2023-04-14T05:50:50.514Z] Time:          Fri Apr 14 2023 12:50:50 GMT+0700 (Western Indonesia Time)
+[debug] [2023-04-14T05:50:50.514Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-14T05:50:50.662Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-14T05:50:50.663Z] > authorizing via signed-in user (denapratama7@gmail.com)
+[debug] [2023-04-14T05:50:50.664Z] [iam] checking project dayoffapi for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-04-14T05:50:50.668Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/dayoffapi:testIamPermissions [none]
+[debug] [2023-04-14T05:50:50.669Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/dayoffapi:testIamPermissions x-goog-quota-user=projects/dayoffapi
+[debug] [2023-04-14T05:50:50.669Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/dayoffapi:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-04-14T05:50:51.830Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/dayoffapi:testIamPermissions 200
+[debug] [2023-04-14T05:50:51.830Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/dayoffapi:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-04-14T05:50:51.831Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/dayoffapi/serviceAccounts/dayoffapi@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-04-14T05:50:51.831Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/dayoffapi/serviceAccounts/dayoffapi@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-04-14T05:50:52.946Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/dayoffapi/serviceAccounts/dayoffapi@appspot.gserviceaccount.com:testIamPermissions 404
+[debug] [2023-04-14T05:50:52.946Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/dayoffapi/serviceAccounts/dayoffapi@appspot.gserviceaccount.com:testIamPermissions {"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}}
+[debug] [2023-04-14T05:50:52.948Z] [functions] service account IAM check errored, deploy may fail:HTTP Error: 404, Unknown service account {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"HTTP Error: 404, Unknown service account","status":404}
+[debug] [2023-04-14T05:50:52.950Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/dayoffapi [none]
+[debug] [2023-04-14T05:50:53.633Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/dayoffapi 200
+[debug] [2023-04-14T05:50:53.633Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/dayoffapi {"projectId":"dayoffapi","projectNumber":"611856724776","displayName":"dayoffAPI","name":"projects/dayoffapi","resources":{"hostingSite":"dayoffapi"},"state":"ACTIVE","etag":"1_af5ba8e8-234f-405e-9c87-a97ebceed1e0"}
+[info] 
+[info] === Deploying to 'dayoffapi'...
+[info] 
+[info] i  deploying functions, hosting 
+[debug] [2023-04-14T05:50:53.862Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at new NodeError (node:internal/errors:399:5)
+    at validateString (node:internal/validators:163:11)
+    at Object.join (node:path:429:7)
+    at Config.path (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\config.js:123:45)
+    at getChildEnvironment (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\lifecycleHooks.js:52:49)
+    at runTargetCommands (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\lifecycleHooks.js:73:14)
+    at C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\lifecycleHooks.js:125:24
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async chain (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:35:9)
+    at async deploy (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:78:5)
+[error] 
+[error] Error: An unexpected error has occurred.
