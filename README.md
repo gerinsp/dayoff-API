@@ -1,2 +1,2 @@
 # dayoff-API
-API untuk mengecek tanggal merah (hari libur nasional dan cuti bersama)
+API Hari Libur Nasional dan Cuti Bersama
