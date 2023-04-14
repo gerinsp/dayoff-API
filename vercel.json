@@ -6,5 +6,8 @@
     ],
     "routes": [
        { "src": "/api(.*)", "dest": "/index.js" }
-    ]
+    ],
+    "scripts": {
+        "build": "npm run app"
+    }
  }
