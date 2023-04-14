@@ -1,0 +1,6 @@
+Endpoint API
+
+1. data hari libur tahun sekarang "/api"
+2. data hari libur berdasarkan tahun yang ditentukan"/api?year=2020"
+3. data hari libur perbulan berdasarkan tahun saat ini "/api?month=5"
+4. data hari libur perbulan berdasarkan tahun yang ditentukan "/api?month=5&year=2023"
