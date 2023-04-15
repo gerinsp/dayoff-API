@@ -186,6 +186,13 @@ function scrapingData(year, params, res) {
             });
         });
       }
+      data.forEach(item => {
+        if(item.keterangan.toLowerCase().includes('cuti bersama')) {
+          item.is_cuti = true
+        } else {
+          item.is_cuti = false
+        }
+      });
       res.json(data); // Mengirim file HTML sebagai response
     } else {
       console.log(error);
