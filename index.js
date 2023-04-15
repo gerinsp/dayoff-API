@@ -29,7 +29,14 @@ app.get("/api", (req, res) => {
 
   if (filename) {
     const rawData = fs.readFileSync(path.join(__dirname, 'data', `${year}.json`))
-    const data = JSON.parse(rawData);
+    let data = JSON.parse(rawData);
+    data.forEach(item => {
+      if(item.keterangan.toLowerCase().includes('cuti bersama')) {
+        item.is_cuti = true
+      } else {
+        item.is_cuti = false
+      }
+    });
     if(params.month) {
       console.log('month')
       const filterData = data.filter((item => {
