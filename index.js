@@ -1,6 +1,7 @@
 const request = require("request");
 const cheerio = require("cheerio");
 const fs = require("fs");
+const path = require('path');
 const querystring = require("querystring");
 const url = require("url");
 const express = require("express");
@@ -23,12 +24,11 @@ app.get("/api", (req, res) => {
     year = params.year;
   }
 
-  const directoryPath = "data";
-  const files = fs.readdirSync(directoryPath);
+  const files = fs.readdirSync(path.join(__dirname, 'data'));
   const filename = files.find((file) => file.includes(year));
 
   if (filename) {
-    const rawData = fs.readFileSync(`./${directoryPath}/${filename}`)
+    const rawData = fs.readFileSync(path.join(__dirname, 'data', `${year}.json`))
     const data = JSON.parse(rawData);
     if(params.month) {
       console.log('month')
