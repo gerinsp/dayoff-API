@@ -1,18 +1,12 @@
 const scraper = (cheerio, request, fs, schedule) => {
   console.log("scraper running..");
-  const currentYear = 2011;
-  // Atur jadwal untuk menjalankan fungsi scraperData() setiap awal tahun
-  const job = schedule.scheduleJob("0 0 1 1 *", function () {
-    const yearNow = new Date().getFullYear();
-    for (let year = currentYear; year <= yearNow; year++) {
-      scraperData(year);
-    }
-  });
 
-//   let yearNow = new Date().getFullYear();
-//   for (let year = currentYear; year <= yearNow; year++) {
-//     scraperData(year);
-//   }
+  // Atur jadwal untuk menjalankan fungsi scraperData() setiap awal bulan
+  const job = schedule.scheduleJob("0 0 1 * *", function () {
+    let yearNow = new Date().getFullYear();
+    console.log('update data baru ' + yearNow)
+      scraperData(yearNow);
+  });
 
   function scraperData(year) {
     request("https://www.tanggalan.com/" + year, (error, response, html) => {
@@ -77,7 +71,7 @@ const scraper = (cheerio, request, fs, schedule) => {
         const foldername = "data";
         fs.writeFile(`${foldername}/${filename}`, dataJson, (err) => {
           if (err) throw err;
-          console.log("file json berhasil dibuat");
+          console.log(`file ${year}.json berhasil dibuat`);
         });
       } else {
         console.log(error);
