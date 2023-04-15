@@ -9,10 +9,10 @@ const scraper = (cheerio, request, fs, schedule) => {
     }
   });
 
-  let yearNow = new Date().getFullYear();
-  for (let year = currentYear; year <= yearNow; year++) {
-    scraperData(year);
-  }
+//   let yearNow = new Date().getFullYear();
+//   for (let year = currentYear; year <= yearNow; year++) {
+//     scraperData(year);
+//   }
 
   function scraperData(year) {
     request("https://www.tanggalan.com/" + year, (error, response, html) => {
