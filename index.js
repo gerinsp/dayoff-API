@@ -28,7 +28,7 @@ app.get("/api", (req, res) => {
   const filename = files.find((file) => file.includes(year));
 
   if (filename) {
-    const rawData = fs.readFileSync(`${directoryPath}/${filename}`)
+    const rawData = fs.readFileSync(`./${directoryPath}/${filename}`)
     const data = JSON.parse(rawData);
     if(params.month) {
       console.log('month')
