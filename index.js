@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.static("./public"));
 
-// scraper(cheerio, request, fs, schedule);
+scraper(cheerio, request, fs, schedule);
 
 app.get("/api", (req, res) => {
   const query = url.parse(req.url).query;
