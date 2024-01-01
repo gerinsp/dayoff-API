@@ -1,0 +1,17 @@
+name: Monthly API Scraping Data
+
+on:
+  schedule:
+    - cron: '*/2 * * * *'  # Menjalankan tugas setiap awal bulan pada pukul 00:00 UTC
+  workflow_dispatch:
+
+jobs:
+  hit-api:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Hit API
+      run: |
+        API_URL="https://dayoffapi.vercel.app/api/get-data"
+        API_RESPONSE=$(curl -s $API_URL)
+        echo "API Response: $API_RESPONSE"
