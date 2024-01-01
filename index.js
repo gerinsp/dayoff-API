@@ -14,8 +14,6 @@ const app = express();
 
 app.use(express.static("./public"));
 
-scraper(cheerio, request, fs, schedule);
-
 app.get("/api", async (req, res) => {
   const query = url.parse(req.url).query;
   const params = querystring.parse(query);
@@ -70,6 +68,14 @@ app.get("/api", async (req, res) => {
 app.get("/", (req, res) => {
   res.sendFile("index.html");
 });
+
+app.get("/get-data", (req, res) => {
+  scraper(cheerio, request, fs, schedule);
+  res.json({
+    status: 'OK',
+    message: 'Success melakukan scraping data'
+  })
+})
 
 app.listen(3000, () => {
   console.log("Website berjalan pada port 3000!");

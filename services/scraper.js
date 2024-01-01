@@ -1,12 +1,9 @@
 const scraper = (cheerio, request, fs, schedule) => {
   console.log("scraper running..");
 
-  // Atur jadwal untuk menjalankan fungsi scraperData() setiap awal bulan
-  const job = schedule.scheduleJob("0 0 1 * *", function () {
-    let yearNow = new Date().getFullYear();
-    console.log('update data baru ' + yearNow)
-      scraperData(yearNow);
-  });
+  let yearNow = new Date().getFullYear();
+  console.log('update data baru ' + yearNow)
+  scraperData(yearNow);
 
   function scraperData(year) {
     request("https://www.tanggalan.com/" + year, (error, response, html) => {
