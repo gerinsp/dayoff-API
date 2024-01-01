@@ -10,7 +10,6 @@
   "author": "Gerin Sena Pratama",
   "license": "ISC",
   "dependencies": {
-    "@vercel/analytics": "^1.1.1",
     "cheerio": "^1.0.0-rc.12",
     "express": "^4.18.2",
     "node-schedule": "^2.1.1",
