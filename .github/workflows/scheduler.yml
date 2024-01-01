@@ -2,7 +2,7 @@ name: Monthly API Scraping Data
 
 on:
   schedule:
-    - cron: '* * * * *'  # Menjalankan tugas setiap awal bulan pada pukul 00:00 UTC
+    - cron: '0 0 1 * *'  # Menjalankan tugas setiap awal bulan pada pukul 00:00 UTC
   workflow_dispatch:
 
 jobs:
