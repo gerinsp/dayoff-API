@@ -7,12 +7,15 @@ const url = require("url");
 const express = require("express");
 const scraper = require("./services/scraper");
 const schedule = require("node-schedule");
+import { inject } from '@vercel/analytics';
 const { promisify } = require("util");
 const readdirAsync = promisify(fs.readdir);
 const readFileAsync = promisify(fs.readFile);
 const app = express();
 
 app.use(express.static("./public"));
+
+inject();
 
 app.get("/api", async (req, res) => {
   const query = url.parse(req.url).query;
