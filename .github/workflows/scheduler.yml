@@ -2,7 +2,7 @@ name: Monthly API Scraping Data
 
 on:
   schedule:
-    - cron: '0 0 1 * *'  # Menjalankan tugas setiap awal bulan pada pukul 00:00 UTC
+    - cron: '0 18 1 * *'  # Menjalankan tugas setiap awal bulan pada pukul 18:00 UTC (setara dengan 01:00 WIB)
   workflow_dispatch:
 
 jobs:
@@ -10,8 +10,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Hit API
-      run: |
-        API_URL="https://dayoffapi.vercel.app/api/get-data"
-        API_RESPONSE=$(curl -s $API_URL)
-        echo "API Response: $API_RESPONSE"
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Hit API and Save Data
+        run: |
+          API_URL="https://dayoffapi.vercel.app/api/get-data"
+          OUTPUT_FILE="data/api_data_$(date +%Y-%m).json"
+
+          API_RESPONSE=$(curl -s $API_URL | jq -r '.data')
+          
+          if [ -n "$API_RESPONSE" ]; then
+            echo "$API_RESPONSE" > $OUTPUT_FILE
+            echo "API response saved to file: $OUTPUT_FILE"
+          else
+            echo "No data received from API, skipping file creation."
+            exit 0  # Keluar jika tidak ada data
+          fi
+
+      - name: Commit and Push Changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: |
+          git config --global user.name "gerinsp"
+          git config --global user.email "denapratama7@gmail.com"
+          
+          git add .
+          git commit -m "Add API data for $(date +%Y-%m)"
+          git push origin main

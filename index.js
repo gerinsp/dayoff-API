@@ -65,13 +65,24 @@ app.get("/api", async (req, res) => {
   }
 });
 
-app.get("/api/get-data", (req, res) => {
-  scraper(cheerio, request, fs, schedule);
-  res.json({
-    status: 'OK',
-    message: 'Success melakukan scraping data'
-  })
-})
+app.get("/api/get-data", async (req, res) => {
+  try {
+    const filePath = await scraper(cheerio, request, fs, schedule);
+    const fileData = fs.readFileSync(filePath, 'utf8');
+
+    res.json({
+      status: 'OK',
+      message: 'Success melakukan scraping data',
+      data: JSON.parse(fileData)
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      status: 'ERROR',
+      message: 'Terjadi kesalahan saat melakukan scraping data',
+    });
+  }
+});
 
 app.get("/", (req, res) => {
   res.sendFile("index.html");
