@@ -25,7 +25,6 @@ jobs:
             echo "API response saved to file: $OUTPUT_FILE"
           else
             echo "No data received from API, skipping file creation."
-            exit 0  # Keluar jika tidak ada data
           fi
 
       - name: Commit and Push Changes
