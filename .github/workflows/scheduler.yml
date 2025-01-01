@@ -16,7 +16,7 @@ jobs:
       - name: Hit API and Save Data
         run: |
           API_URL="https://dayoffapi.vercel.app/api/get-data"
-          OUTPUT_FILE="data/api_data_$(date +%Y-%m).json"
+          OUTPUT_FILE="data/$(date +%Y).json"
 
           API_RESPONSE=$(curl -s $API_URL | jq -r '.data')
           
@@ -36,5 +36,5 @@ jobs:
           git config --global user.email "denapratama7@gmail.com"
           
           git add .
-          git commit -m "Add API data for $(date +%Y-%m)"
-          git push origin master
+          git commit -m "Add API data for $(date +%Y)"
+          git push https://$TOKEN_GITHUB@github.com/gerinsp/dayoff-API.git HEAD:master --force
