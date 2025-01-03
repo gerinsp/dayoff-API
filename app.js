@@ -67,13 +67,11 @@ app.get("/api", async (req, res) => {
 
 app.get("/api/get-data", async (req, res) => {
   try {
-    const filePath = await scraper(cheerio, request, fs, schedule);
-    const fileData = fs.readFileSync(filePath, 'utf8');
-
+    const data = await scraper(cheerio, request, fs, schedule); // Langsung dapatkan data JSON
     res.json({
       status: 'OK',
       message: 'Success melakukan scraping data',
-      data: JSON.parse(fileData)
+      data: data // Kirim data JSON langsung
     });
   } catch (error) {
     console.error(error);

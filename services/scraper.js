@@ -78,9 +78,10 @@ const scraper = (cheerio, request, fs, schedule) => {
             fs.writeFile(filePath, dataJson, (err) => {
               if (err) return reject(err);
               console.log(`File ${filename} berhasil dibuat`);
-              resolve(filePath); // Kembalikan path file
             });
           });
+
+          resolve(data); // Kembalikan path file
         } else {
           console.log(error);
           reject(error);
