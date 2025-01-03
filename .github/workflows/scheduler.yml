@@ -36,4 +36,4 @@ jobs:
 
           git add .
           git commit -m "Add API data for $(date +%Y)"
-          git push https://$GITHUB_TOKEN@github.com/gerinsp/dayoff-API.git HEAD:master --force
+          git push https://$GITHUB_TOKEN@github.com/gerinsp/dayoff-API.git HEAD:master
