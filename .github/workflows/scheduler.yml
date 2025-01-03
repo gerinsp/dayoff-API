@@ -14,6 +14,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # Pull Latest Changes
+      - name: Pull Latest Changes
+        run: |
+          git config --global user.name "gerinsp"
+          git config --global user.email "denapratama7@gmail.com"
+          git pull origin master --rebase
+
       # Hit API and Save Data
       - name: Hit API and Save Data
         run: |
