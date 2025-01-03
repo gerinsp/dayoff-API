@@ -74,7 +74,7 @@
       <workItem from="1695999373685" duration="30000" />
       <workItem from="1735556555328" duration="1265000" />
       <workItem from="1735694042203" duration="3802000" />
-      <workItem from="1735903018938" duration="9318000" />
+      <workItem from="1735903018938" duration="9920000" />
     </task>
     <task id="LOCAL-00001" summary="ubah scraping data dari server ke repo">
       <option name="closed" value="true" />
@@ -172,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735918933779</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update">
+      <option name="closed" value="true" />
+      <created>1735919144616</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1735919144616</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
