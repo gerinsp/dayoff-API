@@ -36,16 +36,18 @@ jobs:
             echo "No data received from API, skipping file creation."
           fi
 
+      # Set Branch Name
+      - name: Set Branch Name
+        run: |
+          BRANCH_NAME="update-data-$(date +%Y-%m-%d)"
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+
       # Create Pull Request
       - name: Create Pull Request
-        run: |
-          BRANCH_NAME="update-data-$(date +%Y-%m-%d)" # Membuat nama branch dengan ekspansi tanggal
-          echo "Creating pull request with branch name: $BRANCH_NAME"
-
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.PERSONAL_TOKEN }}
-          branch: $BRANCH_NAME # Gunakan variabel untuk nama branch
+          branch: ${{ env.BRANCH_NAME }} # Gunakan variabel untuk nama branch
           base: master
           title: "Update API Data for $(date +%Y)"
           body: |
