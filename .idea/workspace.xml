@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95b8c484-da66-4686-b10b-edcd6479e0dc" name="Changes" comment="update scheduler">
+    <list default="true" id="95b8c484-da66-4686-b10b-edcd6479e0dc" name="Changes" comment="update">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +25,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -73,7 +75,7 @@
       <workItem from="1695999373685" duration="30000" />
       <workItem from="1735556555328" duration="1265000" />
       <workItem from="1735694042203" duration="3802000" />
-      <workItem from="1735903018938" duration="6068000" />
+      <workItem from="1735903018938" duration="8576000" />
     </task>
     <task id="LOCAL-00001" summary="ubah scraping data dari server ke repo">
       <option name="closed" value="true" />
@@ -131,7 +133,23 @@
       <option name="project" value="LOCAL" />
       <updated>1735915182387</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update vercel.json">
+      <option name="closed" value="true" />
+      <created>1735915395831</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1735915395831</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update">
+      <option name="closed" value="true" />
+      <created>1735918158778</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1735918158778</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,8 +159,9 @@
     <MESSAGE value="ubah scraping data dari server ke repo" />
     <MESSAGE value="ubah ke branch master" />
     <MESSAGE value="tambah data tahun 2025" />
-    <MESSAGE value="update" />
     <MESSAGE value="update scheduler" />
-    <option name="LAST_COMMIT_MESSAGE" value="update scheduler" />
+    <MESSAGE value="update vercel.json" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>

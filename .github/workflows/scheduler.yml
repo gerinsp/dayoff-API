@@ -17,8 +17,8 @@ jobs:
       # Pull Latest Changes
       - name: Pull Latest Changes
         run: |
-          git config --global user.name "gerinsp"
-          git config --global user.email "denapratama7@gmail.com"
+          git config --global user.name "Your GitHub Username"
+          git config --global user.email "Your GitHub Email"
           git pull origin master --rebase
 
       # Hit API and Save Data
@@ -38,10 +38,14 @@ jobs:
 
       # Create Pull Request
       - name: Create Pull Request
+        run: |
+          BRANCH_NAME="update-data-$(date +%Y-%m-%d)" # Membuat nama branch dengan ekspansi tanggal
+          echo "Creating pull request with branch name: $BRANCH_NAME"
+
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.PERSONAL_TOKEN }}
-          branch: update-data-$(date +%Y-%m-%d) # Membuat branch PR
+          branch: $BRANCH_NAME # Gunakan variabel untuk nama branch
           base: master
           title: "Update API Data for $(date +%Y)"
           body: |
