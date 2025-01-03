@@ -2,24 +2,26 @@ name: Monthly API Scraping Data
 
 on:
   schedule:
-    - cron: '0 18 1 * *'  # Menjalankan tugas setiap awal bulan pada pukul 18:00 UTC (setara dengan 01:00 WIB)
+    - cron: '0 18 1 * *' # Menjalankan tugas setiap awal bulan pada pukul 18:00 UTC
   workflow_dispatch:
 
 jobs:
-  hit-api:
+  hit-api-and-create-pr:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # Hit API and Save Data
       - name: Hit API and Save Data
         run: |
           API_URL="https://dayoffapi.vercel.app/api/get-data"
           OUTPUT_FILE="data/$(date +%Y).json"
 
           API_RESPONSE=$(curl -s $API_URL | jq -r '.data')
-          
+
           if [ -n "$API_RESPONSE" ]; then
             echo "$API_RESPONSE" > $OUTPUT_FILE
             echo "API response saved to file: $OUTPUT_FILE"
@@ -27,13 +29,50 @@ jobs:
             echo "No data received from API, skipping file creation."
           fi
 
-      - name: Commit and Push Changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}  # Ganti ke PERSONAL_TOKEN
-        run: |
-          git config --global user.name "gerinsp"
-          git config --global user.email "denapratama7@gmail.com"
+      # Create Pull Request
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.PERSONAL_TOKEN }}
+          branch: update-data-$(date +%Y-%m-%d) # Membuat branch PR
+          base: master
+          title: "Update API Data for $(date +%Y)"
+          body: |
+            This PR updates the API data for $(date +%Y).  
+            Please review and merge this PR.
+          labels: |
+            auto-update # Label untuk membedakan PR otomatis
 
-          git add .
-          git commit -m "Add API data for $(date +%Y)"
-          git push https://$GITHUB_TOKEN@github.com/gerinsp/dayoff-API.git HEAD:master
+  auto-merge-pr:
+    runs-on: ubuntu-latest
+    needs: hit-api-and-create-pr # Menunggu job sebelumnya selesai
+
+    steps:
+      - name: Auto-Merge Pull Request
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.PERSONAL_TOKEN }}
+          script: |
+            const { data: pullRequests } = await github.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+            });
+
+            for (const pr of pullRequests) {
+              // Cek label atau branch asal
+              const isAutoUpdate = pr.labels.some(label => label.name === "auto-update");
+              const isFromWorkflowBranch = pr.head.ref.startsWith("update-data-");
+
+              if (isAutoUpdate || isFromWorkflowBranch) {
+                await github.pulls.merge({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: pr.number,
+                  merge_method: "merge", // Opsi: merge, squash, rebase
+                });
+                console.log(`Merged PR #${pr.number}`);
+              } else {
+                console.log(`Skipped PR #${pr.number}`);
+              }
+            }
