@@ -39,14 +39,16 @@ jobs:
       # Create Pull Request
       - name: Create Pull Request
         run: |
-          BRANCH_NAME="update-data"  # Nama branch yang lebih sederhana
+          BRANCH_NAME="update-data"
           echo "Creating pull request with branch name: $BRANCH_NAME"
           
-          # Buat branch baru dengan nama yang valid
-          git checkout -b "$BRANCH_NAME"
+          # Pastikan branch baru dibuat berdasarkan branch master atau branch utama lainnya
+          git checkout master
+          git pull origin master
+          git checkout -b "$BRANCH_NAME"  # Membuat branch baru
           git add .
           git commit -m "Add API data for $(date +%Y)"
-          git push origin "$BRANCH_NAME"
+          git push origin "$BRANCH_NAME"  # Push branch baru ke remote
 
         uses: peter-evans/create-pull-request@v5
         with:
