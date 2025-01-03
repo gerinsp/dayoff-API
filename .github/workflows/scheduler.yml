@@ -29,11 +29,11 @@ jobs:
 
       - name: Commit and Push Changes
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}  # Ganti ke PERSONAL_TOKEN
         run: |
           git config --global user.name "gerinsp"
           git config --global user.email "denapratama7@gmail.com"
-          
+
           git add .
           git commit -m "Add API data for $(date +%Y)"
           git push https://$GITHUB_TOKEN@github.com/gerinsp/dayoff-API.git HEAD:master --force
