@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95b8c484-da66-4686-b10b-edcd6479e0dc" name="Changes" comment="update">
+    <list default="true" id="95b8c484-da66-4686-b10b-edcd6479e0dc" name="Changes" comment="update scheduler">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/2025.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/scraper.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/scraper.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +73,7 @@
       <workItem from="1695999373685" duration="30000" />
       <workItem from="1735556555328" duration="1265000" />
       <workItem from="1735694042203" duration="3802000" />
-      <workItem from="1735903018938" duration="5766000" />
+      <workItem from="1735903018938" duration="6068000" />
     </task>
     <task id="LOCAL-00001" summary="ubah scraping data dari server ke repo">
       <option name="closed" value="true" />
@@ -127,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735913320651</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update scheduler">
+      <option name="closed" value="true" />
+      <created>1735915182387</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1735915182387</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +142,7 @@
     <MESSAGE value="ubah ke branch master" />
     <MESSAGE value="tambah data tahun 2025" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="update scheduler" />
+    <option name="LAST_COMMIT_MESSAGE" value="update scheduler" />
   </component>
 </project>

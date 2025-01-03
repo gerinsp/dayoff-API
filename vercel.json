@@ -2,7 +2,7 @@
   "version": 2,
   "name": "dayoff-API",
   "builds": [
-    { "src": "index.js", "use": "@vercel/node" },
+    { "src": "app.js", "use": "@vercel/node" },
     {
       "src": "public/**",
       "use": "@vercel/static"
@@ -11,7 +11,7 @@
   "routes": [
     {
       "src": "/api(.*)",
-      "dest": "/index.js",
+      "dest": "/app.js",
       "headers": {
         "Cache-Control": "public, s-maxage=60, stale-while-revalidate",
         "Access-Control-Allow-Origin": "*"
