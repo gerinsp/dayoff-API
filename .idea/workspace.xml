@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="95b8c484-da66-4686-b10b-edcd6479e0dc" name="Changes" comment="update">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +74,7 @@
       <workItem from="1695999373685" duration="30000" />
       <workItem from="1735556555328" duration="1265000" />
       <workItem from="1735694042203" duration="3802000" />
-      <workItem from="1735903018938" duration="8576000" />
+      <workItem from="1735903018938" duration="8920000" />
     </task>
     <task id="LOCAL-00001" summary="ubah scraping data dari server ke repo">
       <option name="closed" value="true" />
@@ -149,7 +148,23 @@
       <option name="project" value="LOCAL" />
       <updated>1735918158778</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="update">
+      <option name="closed" value="true" />
+      <created>1735918498113</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1735918498113</updated>
+    </task>
+    <task id="LOCAL-00011" summary="update">
+      <option name="closed" value="true" />
+      <created>1735918670596</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1735918670596</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
