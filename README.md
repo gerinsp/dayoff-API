@@ -1,7 +1,5 @@
-# dayoff-API
+API Hari Libur Nasional dan Cuti Bersama di Indonesia
 
-API Hari Libur Nasional dan Cuti Bersama
-
-# Dokumentasi
+## Dokumentasi
 
 Untuk dokumentasi API ini bisa mengunjungi https://dayoffapi.vercel.app/
