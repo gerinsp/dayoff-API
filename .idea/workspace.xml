@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95b8c484-da66-4686-b10b-edcd6479e0dc" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="95b8c484-da66-4686-b10b-edcd6479e0dc" name="Changes" comment="update cuti 2015" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,6 +74,7 @@
       <workItem from="1735694042203" duration="3802000" />
       <workItem from="1735903018938" duration="12736000" />
       <workItem from="1736129651689" duration="1045000" />
+      <workItem from="1736391656472" duration="1267000" />
     </task>
     <task id="LOCAL-00001" summary="ubah scraping data dari server ke repo">
       <option name="closed" value="true" />
@@ -198,7 +196,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735920894923</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="update cuti 2015">
+      <option name="closed" value="true" />
+      <created>1736391681066</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1736391681066</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +217,7 @@
     <MESSAGE value="update scheduler" />
     <MESSAGE value="update vercel.json" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="update cuti 2015" />
+    <option name="LAST_COMMIT_MESSAGE" value="update cuti 2015" />
   </component>
 </project>
