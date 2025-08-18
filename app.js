@@ -28,6 +28,14 @@ app.get("/api", async (req, res) => {
     const files = await readdirAsync(path.join(__dirname, "data"));
     const filename = files.find((file) => file.includes(year));
 
+    const options = { 
+      weekday: 'long',   // nama hari
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric', 
+      timeZone: 'Asia/Jakarta'
+    };
+
     if (filename) {
       const rawData = await readFileAsync(
         path.join(__dirname, "data", `${year}.json`)
@@ -42,14 +50,29 @@ app.get("/api", async (req, res) => {
       });
       if (params.month) {
         console.log("month");
-        const filterData = data.filter((item) => {
+        const filterData = data
+        .filter((item) => {
           const tanggal = new Date(item.tanggal);
           const monthNum = tanggal.getMonth() + 1;
           return monthNum == params.month;
+        })
+        .map(item =>{
+          const tanggal = new Date(item.tanggal);
+          return {
+            ...item,
+            tanggal: tanggal.toLocaleDateString('id-ID', options)
+          }
         });
         res.json(filterData);
       } else {
         console.log("data dari file json");
+        data = data.map(item => {
+          const tanggal = new Date(item.tanggal);
+          return {
+            ...item,
+            tanggal: tanggal.toLocaleDateString('id-ID', options)
+          }
+        })
         res.json(data);
       }
     } else {
