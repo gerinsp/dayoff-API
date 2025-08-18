@@ -60,7 +60,7 @@ app.get("/api", async (req, res) => {
           const tanggal = new Date(item.tanggal);
           return {
             ...item,
-            tanggal: tanggal.toLocaleDateString('id-ID', options)
+            tanggal_display: tanggal.toLocaleDateString('id-ID', options)
           }
         });
         res.json(filterData);
@@ -70,7 +70,7 @@ app.get("/api", async (req, res) => {
           const tanggal = new Date(item.tanggal);
           return {
             ...item,
-            tanggal: tanggal.toLocaleDateString('id-ID', options)
+            tanggal_display: tanggal.toLocaleDateString('id-ID', options)
           }
         })
         res.json(data);
