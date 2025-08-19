@@ -59,8 +59,10 @@ app.get("/api", async (req, res) => {
         .map(item =>{
           const tanggal = new Date(item.tanggal);
           return {
-            ...item,
-            tanggal_display: tanggal.toLocaleDateString('id-ID', options)
+            tanggal: item.tanggal,
+            tanggal_display: tanggal.toLocaleDateString('id-ID', options),
+            keterangan: item.keterangan,
+            is_cuti: item.is_cuti
           }
         });
         res.json(filterData);
@@ -69,8 +71,10 @@ app.get("/api", async (req, res) => {
         data = data.map(item => {
           const tanggal = new Date(item.tanggal);
           return {
-            ...item,
-            tanggal_display: tanggal.toLocaleDateString('id-ID', options)
+            tanggal: item.tanggal,
+            tanggal_display: tanggal.toLocaleDateString('id-ID', options),
+            keterangan: item.keterangan,
+            is_cuti: item.is_cuti
           }
         })
         res.json(data);
