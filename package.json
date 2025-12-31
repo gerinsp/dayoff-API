@@ -7,6 +7,9 @@
     "app": "node app.js",
     "dev": "nodemon app.js"
   },
+  "engines": {
+    "node": "24.x"
+  },
   "author": "Gerin Sena Pratama",
   "license": "ISC",
   "dependencies": {
