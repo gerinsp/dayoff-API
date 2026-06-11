@@ -4,7 +4,13 @@ const scraper = (cheerio, request, fs, schedule) => {
   console.log("scraper running..");
 
   let yearNow = new Date().getFullYear();
+  let monthNow = new Date().getMonth() + 1;
   console.log("update data baru " + yearNow);
+  
+  if (monthNow === 12) {
+    return Promise.all([scraperData(yearNow), scraperData(yearNow + 1)]);
+  }
+  
   return scraperData(yearNow);
 
   function scraperData(year) {
